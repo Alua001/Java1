@@ -1,0 +1,40 @@
+package com.company.Point;
+
+import java.util.Scanner;
+
+import java.lang.Math;
+
+class Point {
+    double x1;
+    double y1;
+
+    public Point(double x, double y) {
+        this.x1 = x;
+        this.y1 = y;
+    }
+    public Point(){
+
+    }
+    public void setX1(double x1){
+        this.x1=x1;
+    }
+    public void setY1(double y1){
+        this.y1=y1;
+    }
+    public double getX1() {
+        return x1;
+    }
+    public double getY1() {
+        return y1;
+    }
+    public double getDistance(Point secondPoint){
+        return Math.sqrt((this.y1 - secondPoint.getY1())*(this.y1 - secondPoint.getY1())+(this.x1 - secondPoint.getX1())*(this.x1 - secondPoint.getX1()));
+    }
+}
+public class Main {
+    public static void main(String[] args){
+        Point point1 = new Point(10,12);
+        Point point2 = new Point(5,2);
+        System.out.println(point2.getDistance(point1));
+    }
+}

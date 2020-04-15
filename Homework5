@@ -1,0 +1,24 @@
+package com.company.Point;
+
+import java.util.Scanner;
+
+interface Employee{
+    public void getOverallIncome();
+    public void getJobStartDate();
+}
+class Student implements Employee{
+    public void getOverallIncome(){
+        System.out.println("All Income:");
+    }
+    public void getJobStartDate(){
+        System.out.println("Start Date:");
+    }
+}
+public class Main {
+    public static void main(String[] args){
+        Employee myEmployee = new Employee();
+        myEmployee.getOverallIncome();
+        myEmployee.getJobStartDate();
+
+    }
+}

@@ -1,0 +1,19 @@
+package com.company.Point;
+
+import java.util.Scanner;
+
+interface ExcellentStudent{
+    int a = 10000;
+}
+interface BadStudent{
+    int b = 5000;
+}
+class Student implements ExcellentStudent,BadStudent{
+    int c = (a+b)/2;
+}
+public class Main {
+    public static void main(String[] args){
+        Student Student=new Student();
+        System.out.println(Student.c);
+    }
+}

@@ -1,0 +1,40 @@
+package com.company.Point;
+
+import java.util.Scanner;
+
+class Employee{
+    int salary;
+}
+class Student extends Employee{
+    int scholarship = 15000;
+}
+class ExcellentStudent extends Student{
+    int highScholorship = 20000;
+}
+class BadStudent extends Employee{
+    int lowScholarship = 10000;
+}
+class ExcellentStudent1 extends Employee{
+    int highScholarship = 25000;
+}
+public class Main{
+    public static void main(String[] args){
+        Student s = new Student();
+        s.salary=30000;
+        s.scholarship=15000;
+        System.out.println("The Salary is:");
+        System.out.println(s.salary);
+        ExcellentStudent e = new ExcellentStudent();
+        e.highScholorship=20000;
+        System.out.println("The highScholarship is:");
+        System.out.println(e.highScholorship);
+        BadStudent b = new BadStudent();
+        b.lowScholarship = 10000;
+        System.out.println("The lowScholarship is:");
+        System.out.println(b.lowScholarship);
+        ExcellentStudent1 e1 = new ExcellentStudent1();
+        e1.highScholarship = 25000;
+        System.out.println("The highScholarship is:");
+        System.out.println(e1.highScholarship);
+    }
+}

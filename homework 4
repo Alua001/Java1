@@ -1,0 +1,26 @@
+package com.company.Point;
+
+import java.util.Scanner;
+
+abstract class Employee{
+    public abstract int overall_income();
+}
+class e1 extends Employee{
+    public int salary = 50000;
+    public int overall_income(){
+        return salary;
+    }
+}
+class e2 extends Employee{
+    public int salary = 60000;
+    public int overall_income(){
+        return salary;
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        e1 salary1 = new e1();
+        e2 salary2 = new e2();
+        System.out.println(salary1.overall_income()+salary2.overall_income());
+    }
+}

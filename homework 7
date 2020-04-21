@@ -1,0 +1,30 @@
+package com.company.Point;
+
+import java.util.Scanner;
+
+class Shape{
+    public void Perimeter(){
+        System.out.println("The perimeter is: 2*(a+b)");
+    }
+    public void Side(){
+        System.out.println("The side is: 4 , square");
+    }
+}
+class Side extends Shape{
+    public void Side(){
+        System.out.println("The side is: 4 , square");
+    }
+}
+class Perimeter extends Shape{
+    public void Perimeter(){
+        System.out.println("The perimeter is: 2*(a+b)");
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        Shape s1 = new Side();
+        s1.Side();
+        Shape s2 = new Perimeter();
+        s2.Perimeter();
+    }
+}

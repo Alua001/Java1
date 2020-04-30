@@ -1,0 +1,114 @@
+1)package com.company;
+
+import java.sql.*;
+
+public class Main{
+
+public static void main(String[] args) {
+
+create(2,"Inkara");
+
+}
+    public static void create(int id,String name){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root","");
+            Statement stmt = con.createStatement();
+            String sql="INSERT INTO student(id,name) VALUES(?,?)";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, String.valueOf(id));
+            statement.setString(2, name);
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A user was inserted successfully!");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+2)package com.company;
+
+import java.sql.*;
+
+public class Main{
+
+public static void main(String[] args) {
+
+read(1);
+
+}
+    public static void read(int id){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root","");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from student where id =" + id);
+            while (rs.next())
+                System.out.println(rs.getInt(1) + "  " + rs.getString(2) /* + "  " + rs.getString(3) */);
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+3)package com.company;
+
+import java.sql.*;
+
+public class Main{
+
+public static void main(String[] args) {
+
+update(2,"Dariga");
+
+}
+    public static void update(int id,String name){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root","");
+            Statement stmt = con.createStatement();
+            String sql="UPDATE student SET id=?,name=?, WHERE name=?";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, String.valueOf(id));
+            statement.setString(2, name);
+            int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("A user was update successfully!");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+4)package com.company;
+
+import java.sql.*;
+
+public class Main{
+
+public static void main(String[] args) {
+
+delete(1);
+
+}
+    public static void delete(int id){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/oop", "root","");
+            Statement stmt = con.createStatement();
+            String sql="DELETE FROM student WHERE id=?";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setString(1, "Alua");
+            ResultSet rs = stmt.executeQuery("select * from student where id =" + id);
+            while (rs.next())
+                System.out.println(rs.getInt(1) + "  " + rs.getString(2) /* + "  " + rs.getString(3) */);
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}

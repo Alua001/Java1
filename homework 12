@@ -1,0 +1,26 @@
+package com.company;
+
+class AstanaItUniversity{
+    int numberOfGrant = 800;
+    public static AstanaItUniversity available_student_numbers;
+
+    public static AstanaItUniversity getInstance() {
+        if(available_student_numbers==null){
+            available_student_numbers=new AstanaItUniversity();
+        }
+        return available_student_numbers;
+    }
+    void averageGrants(int b){
+        this.numberOfGrant-=b;
+    }
+}
+class testSinglePattern{
+    public static void main(String[] args) {
+        AstanaItUniversity ITManagement = AstanaItUniversity.getInstance();
+        AstanaItUniversity CyberSecurity = AstanaItUniversity.getInstance();
+        ITManagement.averageGrants(100);
+        CyberSecurity.averageGrants(200);
+        System.out.println(CyberSecurity.numberOfGrant);
+        System.out.println(ITManagement.numberOfGrant);
+    }
+}

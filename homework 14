@@ -1,0 +1,59 @@
+package com.company;
+
+interface Duck{
+    public void quack();
+    public void fly();
+}
+interface Turkey{
+    public void gobble();
+    public void fly();
+}
+class MallardDuck implements Duck{
+    public void quack(){
+        System.out.println("Quack");
+    }
+    public void fly(){
+        System.out.println("I'm flying");
+    }
+}
+class WildTurkey implements Turkey{
+    public void gobble(){
+        System.out.println("Gobble gobble");
+    }
+    public void fly(){
+        System.out.println("I'm flying a short distance");
+    }
+}
+class TurkeyAdapter implements Duck{
+    Turkey turkey;
+
+    public TurkeyAdapter(Turkey turkey){
+        this.turkey=turkey;
+    }
+    public void quack(){
+        turkey.gobble();
+    }
+    public void fly(){
+        for(int i=0;i<5;i++){
+            turkey.fly();
+        }
+    }
+}
+class DuckTestDrive{
+    public static void main(String[] args) {
+        MallardDuck duck=new MallardDuck();
+        WildTurkey turkey=new WildTurkey();
+        Duck TurkeyAdapter=new TurkeyAdapter(turkey);
+        System.out.println("The Turkey says...");
+        turkey.gobble();
+        turkey.fly();
+        System.out.println("The Duck says...");
+        testDuck(duck);
+        System.out.println("The TurkeyAdapter says...");
+        testDuck(TurkeyAdapter);
+    }
+    static void testDuck(Duck duck){
+        duck.fly();
+        duck.quack();
+    }
+}
